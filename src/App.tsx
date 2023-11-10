@@ -1,11 +1,17 @@
-import { ModeToggle } from "@/components/ModeToggle";
-import { Button } from "@/components/ui/button";
+import NotFoundPage from "@/pages/NotFoundPage";
+import SignInPage from "@/pages/SignInPage";
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import { ROUTES } from "@/utils/routes";
 
 export default function App() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-8">
-      <Button>Welcome!</Button>
-      <ModeToggle className="absolute right-8 top-4" />
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path={ROUTES.home} element={<SignInPage />} />
+        <Route path={ROUTES.notFound} element={<NotFoundPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
