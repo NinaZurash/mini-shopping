@@ -1,4 +1,4 @@
-import SignInForm from "@/components/forms/SignInForm";
+import SignUpForm from "@/components/forms/SignUpForm";
 
 const imageUrl = "/wallp.jpg";
 export default function SignInPage() {
@@ -7,7 +7,7 @@ export default function SignInPage() {
       style={{ backgroundImage: `url(${imageUrl})`, backgroundSize: "cover" }}
       className="flex min-h-screen items-center justify-center bg-no-repeat object-cover"
     >
-      <SignInForm />
+      <SignUpForm />
     </div>
   );
 }

@@ -14,10 +14,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { ROUTES } from "@/utils/routes";
 
 type FormSchema = z.infer<typeof formSchema>;
 
-export default function ProfileForm() {
+export default function SignInForm() {
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -31,9 +32,10 @@ export default function ProfileForm() {
   }
 
   return (
-    <div className="borde rounded-xl border-2 border-indigo-900 bg-gradient-to-r from-sky-500 to-indigo-500 p-14">
+    <div className="rounded-2xl border bg-white p-14 shadow-md">
+      <h3 className="mb-4 text-center text-2xl font-bold">Sign In</h3>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="w-[300px] space-y-4">
           <FormField
             control={form.control}
             name="email"
@@ -60,7 +62,17 @@ export default function ProfileForm() {
               </FormItem>
             )}
           />
-          <Button type="submit">Submit</Button>
+          <div className="flex justify-between">
+            <a href="/" className="text-sm text-gray-500 hover:underline">
+              Forgot password?
+            </a>
+            <a href={ROUTES.signUp} className="text-sm text-gray-500 hover:underline">
+              Sign up
+            </a>
+          </div>
+          <Button className="w-full" type="submit">
+            Submit
+          </Button>
         </form>
       </Form>
     </div>
