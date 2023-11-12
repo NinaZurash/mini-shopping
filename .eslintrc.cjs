@@ -20,6 +20,7 @@ module.exports = {
   },
   plugins: ["react-refresh", "import", "eslint-plugin-jsx-a11y", "unused-imports"],
   rules: {
+    "react/react-in-jsx-scope": "off",
     "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
     "@typescript-eslint/no-unused-vars": [
       "error",

@@ -6,6 +6,7 @@ import SignUpPage from "@/pages/SignUpPage";
 import { Route, Routes } from "react-router-dom";
 
 import NavMenu from "@/components/header/NavMenu";
+import TailwindIndicator from "@/components/TailwindIndicator";
 import { ROUTES } from "@/utils/routes";
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
         <Route path={ROUTES.notFound} element={<NotFoundPage />} />
         <Route path={ROUTES.catalog} element={<CatalogPage />} />
       </Routes>
+      <TailwindIndicator />
     </>
   );
 }
