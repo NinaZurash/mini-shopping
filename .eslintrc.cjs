@@ -4,6 +4,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:@typescript-eslint/recommended",
@@ -12,8 +13,10 @@ module.exports = {
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    tsconfigRootDir: "./",
-    project: "./tsconfig.json",
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: ["./tsconfig.json", "./tsconfig.node.json"],
+    tsconfigRootDir: __dirname,
   },
   plugins: ["react-refresh", "import", "eslint-plugin-jsx-a11y", "unused-imports"],
   rules: {
