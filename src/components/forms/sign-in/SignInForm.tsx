@@ -63,7 +63,7 @@ export default function SignInForm() {
             )}
           />
           <div className="flex justify-between">
-            <a href="/" className="text-sm text-gray-500 hover:underline">
+            <a href={ROUTES.home} className="text-sm text-gray-500 hover:underline">
               Forgot password?
             </a>
             <a href={ROUTES.signUp} className="text-sm text-gray-500 hover:underline">

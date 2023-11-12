@@ -1,10 +1,9 @@
 import { CommandMenu } from "@/components/CommandMenu";
 import { MainNav } from "@/components/header/MainNav";
 import { MobileNav } from "@/components/header/MobileNav";
+import SocialNavLink from "@/components/header/SocialNavLink";
 import { Icons } from "@/components/Icons";
 import { ModeToggle } from "@/components/ModeToggle";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 export default function NavMenu() {
   return (
@@ -17,32 +16,16 @@ export default function NavMenu() {
             <CommandMenu />
           </div>
           <nav className="flex items-center">
-            <a href="/" target="_blank" rel="noreferrer">
-              <div
-                className={cn(
-                  buttonVariants({
-                    variant: "ghost",
-                  }),
-                  "w-9 px-0",
-                )}
-              >
-                <Icons.gitHub className="h-4 w-4" />
-                <span className="sr-only">GitHub</span>
-              </div>
-            </a>
-            <a href="/" target="_blank" rel="noreferrer">
-              <div
-                className={cn(
-                  buttonVariants({
-                    variant: "ghost",
-                  }),
-                  "w-9 px-0",
-                )}
-              >
-                <Icons.twitter className="h-3 w-3 fill-current" />
-                <span className="sr-only">Twitter</span>
-              </div>
-            </a>
+            <SocialNavLink
+              href="https://github.com/NinaZurash"
+              title="Github"
+              Icon={Icons.gitHub}
+            />
+            <SocialNavLink
+              href="https://www.linkedin.com/in/nino-zurashvili-8039ab265/"
+              title="Linkedin"
+              Icon={Icons.linkedIn}
+            />
             <ModeToggle className="ml-2" />
           </nav>
         </div>
