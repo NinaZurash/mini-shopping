@@ -1,9 +1,10 @@
+import { docsConfig } from "@/config/links";
+
 import { ViewVerticalIcon } from "@radix-ui/react-icons";
 import { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Icons } from "@/components/Icons";
-import { docsConfig } from "@/components/links";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";

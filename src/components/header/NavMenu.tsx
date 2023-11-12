@@ -1,6 +1,6 @@
+import { MainNav } from "@/components/header/MainNav";
+import { MobileNav } from "@/components/header/MobileNav";
 import { Icons } from "@/components/Icons";
-import { MainNav } from "@/components/MainNav";
-import { MobileNav } from "@/components/MobileNav";
 import { ModeToggle } from "@/components/ModeToggle";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";

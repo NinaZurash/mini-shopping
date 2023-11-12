@@ -3,7 +3,7 @@ import * as z from "zod";
 
 import { useForm } from "react-hook-form";
 
-import { signUpFormSchema } from "@/components/forms/schema";
+import { signUpFormSchema } from "@/components/forms/sign-up/schema";
 import { Button } from "@/components/ui/button";
 import {
   Form,

@@ -1,4 +1,4 @@
-import SignUpForm from "@/components/forms/SignUpForm";
+import SignUpForm from "@/components/forms/sign-up/SignUpForm";
 
 const imageUrl = "/wallp.jpg";
 export default function SignInPage() {
