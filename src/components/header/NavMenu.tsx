@@ -1,3 +1,4 @@
+import { CommandMenu } from "@/components/CommandMenu";
 import { MainNav } from "@/components/header/MainNav";
 import { MobileNav } from "@/components/header/MobileNav";
 import { Icons } from "@/components/Icons";
@@ -13,8 +14,7 @@ export default function NavMenu() {
         <MobileNav />
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
           <div className="w-full flex-1 md:w-auto md:flex-none">
-            {/* <CommandMenu /> */}
-            <h1> Comand Menu </h1>
+            <CommandMenu />
           </div>
           <nav className="flex items-center">
             <a href="/" target="_blank" rel="noreferrer">
@@ -43,7 +43,7 @@ export default function NavMenu() {
                 <span className="sr-only">Twitter</span>
               </div>
             </a>
-            <ModeToggle />
+            <ModeToggle className="ml-2" />
           </nav>
         </div>
       </div>
