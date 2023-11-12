@@ -1,6 +1,10 @@
+import { docsConfig } from "@/config/links";
+
 import NavLink from "@/components/header/NavLink";
 import { Icons } from "@/components/Icons";
 import { ROUTES } from "@/utils/routes";
+
+const Links = docsConfig.mainNav.map((item) => <NavLink key={item.href} {...item} />);
 
 export function MainNav() {
   return (
@@ -9,11 +13,7 @@ export function MainNav() {
         <Icons.logo className="h-6 w-6" />
         <span className="hidden font-bold sm:inline-block">Shopuki</span>
       </a>
-      <nav className="flex items-center space-x-6 text-sm font-medium">
-        <NavLink title="Home" href={ROUTES.home} />
-        <NavLink title="Catalog" href={ROUTES.catalog} />
-        <NavLink title="Purchase History" href={ROUTES.purchaseHistory} />
-      </nav>
+      <nav className="flex items-center space-x-6 text-sm font-medium">{Links}</nav>
     </div>
   );
 }

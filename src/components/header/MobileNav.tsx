@@ -1,17 +1,22 @@
 import { docsConfig } from "@/config/links";
 
 import { ViewVerticalIcon } from "@radix-ui/react-icons";
-import { Fragment, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
+import MobileLink from "@/components/header/MobileLink";
 import { Icons } from "@/components/Icons";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { cn } from "@/lib/utils";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
+
+  const Links = docsConfig.mainNav.map((item) => (
+    <MobileLink key={item.href} href={item.href} onOpenChange={setOpen}>
+      {item.title}
+    </MobileLink>
+  ));
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -30,67 +35,9 @@ export function MobileNav() {
           <span className="font-bold">Kuks</span>
         </MobileLink>
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
-          <div className="flex flex-col space-y-3">
-            {docsConfig.mainNav?.map(
-              (item) =>
-                item.href && (
-                  <MobileLink key={item.href} href={item.href} onOpenChange={setOpen}>
-                    {item.title}
-                  </MobileLink>
-                ),
-            )}
-          </div>
-          <div className="flex flex-col space-y-2">
-            {docsConfig.sidebarNav.map((item, index) => (
-              <div key={index} className="flex flex-col space-y-3 pt-6">
-                <h4 className="font-medium">{item.title}</h4>
-                {item?.items?.length &&
-                  item.items.map((item) => (
-                    <Fragment key={item.href}>
-                      {!item.disabled &&
-                        (item.href ? (
-                          <MobileLink
-                            href={item.href}
-                            onOpenChange={setOpen}
-                            className="text-muted-foreground"
-                          >
-                            {item.title}
-                          </MobileLink>
-                        ) : (
-                          item.title
-                        ))}
-                    </Fragment>
-                  ))}
-              </div>
-            ))}
-          </div>
+          <div className="flex flex-col space-y-3">{Links}</div>
         </ScrollArea>
       </SheetContent>
     </Sheet>
-  );
-}
-
-interface MobileLinkProps {
-  onOpenChange?: (open: boolean) => void;
-  children: React.ReactNode;
-  href: string;
-  className?: string;
-}
-
-function MobileLink({ href, onOpenChange, className, children, ...props }: MobileLinkProps) {
-  const navigate = useNavigate();
-
-  return (
-    <a
-      href={href}
-      onClick={() => {
-        navigate(href.toString());
-        onOpenChange?.(false);
-      }}
-      className={cn(className)}
-      {...props}
-    >
-      {children}
-    </a>
   );
 }

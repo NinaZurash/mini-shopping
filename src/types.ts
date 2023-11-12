@@ -2,7 +2,7 @@ import { Icons } from "@/components/Icons";
 
 export interface NavItem {
   title: string;
-  href?: string;
+  href: string;
   disabled?: boolean;
   external?: boolean;
   icon?: keyof typeof Icons;
@@ -19,5 +19,4 @@ export interface SidebarNavItem extends NavItemWithChildren {}
 
 export interface DocsConfig {
   mainNav: MainNavItem[];
-  sidebarNav: SidebarNavItem[];
 }
