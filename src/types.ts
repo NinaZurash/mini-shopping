@@ -20,3 +20,11 @@ export interface SidebarNavItem extends NavItemWithChildren {}
 export interface DocsConfig {
   mainNav: MainNavItem[];
 }
+
+export type Product = {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  image: string;
+};

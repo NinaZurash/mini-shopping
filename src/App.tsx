@@ -1,4 +1,5 @@
 import CatalogPage from "@/pages/CatalogPage";
+import HomePage from "@/pages/HomePage";
 import NotFoundPage from "@/pages/NotFoundPage";
 import SignInPage from "@/pages/SignInPage";
 import SignUpPage from "@/pages/SignUpPage";
@@ -14,7 +15,8 @@ export default function App() {
     <>
       <NavMenu />
       <Routes>
-        <Route path={ROUTES.home} element={<SignInPage />} />
+        <Route path={ROUTES.home} element={<HomePage />} />
+        <Route path={ROUTES.signIn} element={<SignInPage />} />
         <Route path={ROUTES.signUp} element={<SignUpPage />} />
         <Route path={ROUTES.notFound} element={<NotFoundPage />} />
         <Route path={ROUTES.catalog} element={<CatalogPage />} />
