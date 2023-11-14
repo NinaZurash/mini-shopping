@@ -28,3 +28,9 @@ export type Product = {
   price: number;
   image: string;
 };
+
+export type Category = {
+  id: number;
+  title: string;
+  image: string;
+};

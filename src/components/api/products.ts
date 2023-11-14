@@ -9,3 +9,14 @@ export const getAllProducts = async () => {
     console.error(error);
   }
 };
+
+export const getAllCategories = async () => {
+  try {
+    const response = (await axios.get("https://fakestoreapi.com/products/categories")) as {
+      data: string[];
+    };
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
