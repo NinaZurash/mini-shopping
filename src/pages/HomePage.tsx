@@ -1,7 +1,7 @@
 import { CarrotIcon } from "lucide-react";
 
 import { useProducts } from "@/providers/products/useProducts";
-import { ImageCarousel } from "@/components/ImageCarousel";
+import ImageCarousel from "@/components/ImageCarousel";
 import { Button } from "@/components/ui/button";
 
 export default function HomePage() {
@@ -10,6 +10,10 @@ export default function HomePage() {
   console.log(categories);
   return (
     <>
+      <section className="flex flex-col items-center justify-center ">
+        {/* <h2 className="text-3xl font-bold">Categories</h2> */}
+        <ImageCarousel />
+      </section>
       <div className="flex flex-col items-center justify-center gap-8 p-16">
         <h2 className="text-3xl font-bold">Today&apos;s Special Items</h2>
         <div className="grid grid-cols-4 gap-8">
@@ -32,8 +36,6 @@ export default function HomePage() {
           ))}
         </div>
       </div>
-      <h2 className="text-3xl font-bold">Categories</h2>
-      <ImageCarousel />
     </>
   );
 }
