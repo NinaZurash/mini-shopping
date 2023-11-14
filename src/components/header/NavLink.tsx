@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
+import { CategoryImages } from "@/constants/Categories";
 
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 import { ROUTES } from "@/utils/routes";
 
 type Props = {
@@ -13,36 +13,33 @@ type Props = {
   href: string;
 };
 
-type DropDownProps = {
-  title: string;
-  href: string;
-  categoryArray: Props[];
-};
-
 export default function NavLink({ title, href }: Props) {
-  return (
-    <Link to={href} className="hover:text-foreground/80 text-foreground/60 transition-colors">
-      {title}
-    </Link>
-  );
-}
-
-export function NavLinkDropDown({ title, categoryArray }: DropDownProps) {
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger>{title}</DropdownMenuTrigger>
-      <DropdownMenuContent>
-        {categoryArray.map((category: Props) => (
-          <DropdownMenuItem key={category.href}>
-            <Link
-              to={`${ROUTES.catalog}?category=${category.href}`}
-              className="hover:text-foreground/80 text-foreground/60 transition-colors"
-            >
-              {category.title}
-            </Link>
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+  return href === ROUTES.catalog ? (
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Catalog</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <ul className="grid w-[400px] items-center gap-3 p-6 lg:grid-cols-[.75fr_1fr]">
+          {Object.keys(CategoryImages).map((category) => (
+            <li key={category} className="row-span-3">
+              <NavigationMenuLink
+                href={`${ROUTES.catalog}?category=${category}`}
+                className="hover:text-foreground/80 text-foreground/60 transition-colors"
+              >
+                {category[0].toUpperCase() + category.slice(1)}
+              </NavigationMenuLink>
+            </li>
+          ))}
+        </ul>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  ) : (
+    <NavigationMenuItem>
+      <NavigationMenuLink
+        href={href}
+        className="hover:text-foreground/80 text-foreground/60 text-sm font-medium transition-colors"
+      >
+        {title}
+      </NavigationMenuLink>
+    </NavigationMenuItem>
   );
 }

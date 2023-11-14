@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 
 export default function HomePage() {
   const { specialProducts } = useProducts();
-  console.log("Home Page, fetch data here");
 
   return (
     <>
