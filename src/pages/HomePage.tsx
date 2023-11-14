@@ -5,13 +5,12 @@ import ImageCarousel from "@/components/ImageCarousel";
 import { Button } from "@/components/ui/button";
 
 export default function HomePage() {
-  const { specialProducts, categories } = useProducts();
+  const { specialProducts } = useProducts();
+  console.log("Home Page, fetch data here");
 
-  console.log(categories);
   return (
     <>
       <section className="flex flex-col items-center justify-center ">
-        {/* <h2 className="text-3xl font-bold">Categories</h2> */}
         <ImageCarousel />
       </section>
       <div className="flex flex-col items-center justify-center gap-8 p-16">

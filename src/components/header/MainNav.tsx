@@ -1,10 +1,22 @@
 import { docsConfig } from "@/config/links";
+import { CategoryImages } from "@/constants/Categories";
 
-import NavLink from "@/components/header/NavLink";
+import NavLink, { NavLinkDropDown } from "@/components/header/NavLink";
 import { Icons } from "@/components/Icons";
 import { ROUTES } from "@/utils/routes";
 
-const Links = docsConfig.mainNav.map((item) => <NavLink key={item.href} {...item} />);
+const categoriesChildren = Object.keys(CategoryImages).map((category) => ({
+  title: category,
+  href: category,
+}));
+
+const Links = docsConfig.mainNav.map((item) =>
+  item.href === ROUTES.catalog ? (
+    <NavLinkDropDown key={item.href} {...item} categoryArray={categoriesChildren} />
+  ) : (
+    <NavLink key={item.href} {...item} />
+  ),
+);
 
 export function MainNav() {
   return (

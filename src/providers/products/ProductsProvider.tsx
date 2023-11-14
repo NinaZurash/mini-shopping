@@ -49,7 +49,6 @@ export const ProductsProvider = ({ children }: { children: React.ReactNode }) =>
           title: category,
           image: CategoryImages[category as keyof typeof CategoryImages],
         }));
-        console.log(categoriesArray);
         setCategories(categoriesArray);
       } else {
         alert("Error while fetching products");
