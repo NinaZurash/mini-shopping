@@ -20,3 +20,14 @@ export const getAllCategories = async () => {
     console.error(error);
   }
 };
+
+export const getProductsByCategory = async (category: string) => {
+  try {
+    const response = (await axios.get(
+      `https://fakestoreapi.com/products/category/${category}`,
+    )) as { data: Product[] };
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
