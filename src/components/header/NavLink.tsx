@@ -16,7 +16,9 @@ type Props = {
 export default function NavLink({ title, href }: Props) {
   return href === ROUTES.catalog ? (
     <NavigationMenuItem>
-      <NavigationMenuTrigger>Catalog</NavigationMenuTrigger>
+      <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent">
+        Catalog
+      </NavigationMenuTrigger>
       <NavigationMenuContent>
         <ul className="grid w-[400px] items-center gap-3 p-6 lg:grid-cols-[.75fr_1fr]">
           {Object.keys(CategoryImages).map((category) => (

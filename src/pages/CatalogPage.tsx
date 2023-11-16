@@ -16,9 +16,7 @@ export default function CatalogPage() {
   const [searchParams] = useSearchParams();
   const categories = searchParams.get("category");
   return (
-    <div className="">
-      {categories && categoriesComponents[categories as keyof typeof categoriesComponents]}
-    </div>
+    <div>{categories && categoriesComponents[categories as keyof typeof categoriesComponents]}</div>
   );
 }
 
