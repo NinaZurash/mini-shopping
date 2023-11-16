@@ -4,6 +4,7 @@ import { MobileNav } from "@/components/header/MobileNav";
 import SocialNavLink from "@/components/header/SocialNavLink";
 import { Icons } from "@/components/Icons";
 import { ModeToggle } from "@/components/ModeToggle";
+import { ROUTES } from "@/utils/routes";
 
 export default function NavMenu() {
   return (
@@ -27,6 +28,12 @@ export default function NavMenu() {
               Icon={Icons.linkedIn}
             />
             <ModeToggle className="ml-2" />
+            <SocialNavLink
+              href={ROUTES.profile}
+              target="_self"
+              title="Profile"
+              Icon={Icons.profile}
+            />
           </nav>
         </div>
       </div>

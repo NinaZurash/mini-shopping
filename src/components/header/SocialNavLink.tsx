@@ -7,11 +7,12 @@ type Props = {
   href: string;
   title: string;
   Icon: React.FC<React.SVGProps<SVGSVGElement>>;
+  target?: "_blank" | "_self";
 };
 
-export default function SocialNavLink({ href, title, Icon }: Props) {
+export default function SocialNavLink({ href, title, Icon, target = "_blank" }: Props) {
   return (
-    <Link to={href} target="_blank" rel="noreferrer">
+    <Link to={href} target={target} rel="noreferrer">
       <div
         className={cn(
           buttonVariants({

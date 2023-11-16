@@ -1,6 +1,7 @@
 import CatalogPage from "@/pages/CatalogPage";
 import HomePage from "@/pages/HomePage";
 import NotFoundPage from "@/pages/NotFoundPage";
+import ProfilePage from "@/pages/ProfilePage";
 import SignInPage from "@/pages/SignInPage";
 import SignUpPage from "@/pages/SignUpPage";
 
@@ -20,6 +21,7 @@ export default function App() {
         <Route path={ROUTES.signUp} element={<SignUpPage />} />
         <Route path={ROUTES.notFound} element={<NotFoundPage />} />
         <Route path={ROUTES.catalog} element={<CatalogPage />} />
+        <Route path={ROUTES.profile} element={<ProfilePage />} />
       </Routes>
       <TailwindIndicator />
     </>

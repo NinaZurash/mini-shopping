@@ -5,4 +5,5 @@ export const ROUTES = {
   signIn: "/sign-in",
   catalog: "/catalog",
   purchaseHistory: "/purchase-history",
+  profile: "/profile",
 } as const;
