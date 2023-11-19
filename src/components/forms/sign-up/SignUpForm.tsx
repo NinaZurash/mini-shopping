@@ -39,6 +39,7 @@ export default function SignUpForm() {
   function onSubmit(values: SignUpFormSchema) {
     createUserWithEmailAndPassword(auth, values.email, values.password)
       .then((userCredential) => {
+        console.log(userCredential);
         const newUser = userCredential.user as User;
         if (newUser.email) {
           setUser({ email: newUser.email, uid: newUser.uid });
