@@ -32,7 +32,6 @@ export default function SignInForm() {
       password: "",
     },
   });
-
   function onSubmit(values: FormSchema) {
     signInWithEmailAndPassword(auth, values.email, values.password)
       .then((userCredential) => {

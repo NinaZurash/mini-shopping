@@ -1,8 +1,12 @@
+import { auth } from "@/config/firebase";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { createUserWithEmailAndPassword, User } from "firebase/auth";
 import * as z from "zod";
 
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
+import { useUser } from "@/providers/user/useUser";
 import { signUpFormSchema } from "@/components/forms/sign-up/schema";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,6 +23,8 @@ import { ROUTES } from "@/utils/routes";
 type SignUpFormSchema = z.infer<typeof signUpFormSchema>;
 
 export default function SignUpForm() {
+  const navigate = useNavigate();
+  const { setUser } = useUser();
   const form = useForm<SignUpFormSchema>({
     resolver: zodResolver(signUpFormSchema),
     defaultValues: {
@@ -31,7 +37,19 @@ export default function SignUpForm() {
   });
 
   function onSubmit(values: SignUpFormSchema) {
-    console.log(values);
+    createUserWithEmailAndPassword(auth, values.email, values.password)
+      .then((userCredential) => {
+        const newUser = userCredential.user as User;
+        if (newUser.email) {
+          setUser({ email: newUser.email, uid: newUser.uid });
+        }
+        navigate(ROUTES.profile);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
   }
 
   return (
