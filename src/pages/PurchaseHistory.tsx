@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { useUser } from "@/providers/user/useUser";
 
 export default function PurchaseHistory() {
-  const { user } = useUser();
+  const { user, loading } = useUser();
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user === null) {
+    if (!loading && user === null) {
       navigate("/sign-in");
-    }
-  }, [navigate, user]);
-  return <div>PurchaseHistory</div>;
+    } else console.log(user);
+  }, [navigate, user, loading]);
+  return <div>PurchaseHistor</div>;
 }
