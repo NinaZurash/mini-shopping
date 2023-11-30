@@ -13,5 +13,5 @@ export default function PurchaseHistory() {
       navigate("/sign-in");
     } else console.log(user);
   }, [navigate, user, loading]);
-  return <div>PurchaseH</div>;
+  return <div>PurchaseHistory</div>;
 }
